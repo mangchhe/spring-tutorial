@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/bodyHeader :: bodyHeader"> </head>
+
+<body>
+<h1 style="margin-right: 50px">회원가입</h1>
+<form action="/user/signup" th:object="${userDto}" method="post">
+    <label th:for="email" class="form-label">Email</label>
+    <input
+            type="email"
+            th:field="*{email}"
+            class="form-control"
+            placeholder="name@example.com"
+            th:class="${#fields.hasErrors('email')}?'form-control fieldError' : 'form-control'"
+    />
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Incorrect data</p>
+    <br />
+    <label th:for="password" class="form-label">Password</label>
+    <input
+            type="password"
+            th:field="*{password}"
+            class="form-control"
+            th:class="${#fields.hasErrors('password')}?'form-control fieldError' : 'form-control'"
+    />
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+        Incorrect data
+    </p>
+    <br />
+    <button type="submit" class="btn btn-primary">제출</button>
+</form>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/bodyHeader :: bodyHeader"> </head>
+
+<body>
+<div class="header-wrapper">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">아이디</th>
+            <th scope="col">비밀번호</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userlist}">
+            <th th:text="${user.id}" scope="row"></th>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

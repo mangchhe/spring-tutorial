@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class UserDto {
     @NotEmpty(message = "이메일 입력은 필수입니다.")
     private String email;
-    @NotEmpty(message = "이메일 입력은 필수입니다.")
+    @NotEmpty(message = "비밀번호 입력은 필수입니다.")
     @Size(min = 6, max = 18)
     @Pattern(regexp = "^[a-zA-z0-9]*$")
     private String password;

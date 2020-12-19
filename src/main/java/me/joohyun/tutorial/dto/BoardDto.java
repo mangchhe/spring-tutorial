@@ -2,7 +2,6 @@ package me.joohyun.tutorial.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import me.joohyun.tutorial.domain.User;
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
@@ -11,13 +10,9 @@ import java.time.LocalDateTime;
 @Setter
 public class BoardDto {
 
-    @NotEmpty
+    @NotEmpty(message = "제목을 입력해야합니다.")
     private String title;
-    @NotEmpty
+    @NotEmpty(message = "내용을 입력해야합니다.")
     private String content;
-    @NotEmpty
-    private LocalDateTime board_date;
-    @NotEmpty
-    private User user;
 
 }

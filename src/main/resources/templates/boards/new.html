@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/bodyHeader :: bodyHeader"> </head>
+
+<body>
+<h1 style="margin-right: 50px">게시판 생성</h1>
+<form action="/board/new" th:object="${boardDto}" method="post">
+    <label th:for="title" class="form-label">title</label>
+    <input
+            type="text"
+            th:field="*{title}"
+            class="form-control"
+            th:class="${#fields.hasErrors('title')}?'form-control fieldError' : 'form-control'"
+    />
+    <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect data</p>
+    <br />
+    <label th:for="content" class="form-label">content</label>
+    <textarea
+            cols="30"
+            rows="10"
+            type="text"
+            th:field="*{content}"
+            class="form-control"
+            th:class="${#fields.hasErrors('content')}?'form-control fieldError' : 'form-control'"
+    />
+    <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
+        Incorrect data
+    </p>
+    <br />
+    <button type="submit" class="btn btn-primary">제출</button>
+</form>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
