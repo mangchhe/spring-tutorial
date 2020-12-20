@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/bodyHeader :: bodyHeader"> </head>
+
+<body>
+<h1 style="margin-right: 50px">로그인</h1>
+<form action="/user/login" method="post">
+    <label th:for="email" class="form-label">Email</label>
+    <input
+            type="email"
+            name="username"
+            class="form-control"
+            placeholder="name@example.com"
+    />
+    <br />
+    <label th:for="password" class="form-label">Password</label>
+    <input
+            type="password"
+            name="password"
+            class="form-control"
+    />
+    <br />
+    <button type="submit" class="btn btn-primary">제출</button>
+</form>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

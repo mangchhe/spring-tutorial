@@ -1,6 +1,7 @@
 package me.joohyun.tutorial.repository;
 
 import me.joohyun.tutorial.domain.Board;
+import me.joohyun.tutorial.domain.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -24,6 +25,12 @@ public class BoardRepository {
 
     public List<Board> findAll(){
         return em.createQuery("select b from Board b", Board.class)
+                .getResultList();
+    }
+
+    public List<Board> findAllByUser(User user){
+        return em.createQuery("select b from Board b where b.user = :user", Board.class)
+                .setParameter("user", user)
                 .getResultList();
     }
 

@@ -15,11 +15,12 @@ public class UserService {
 
     private final UserRepository ur;
 
+
     /**
      * 회원가입
      */
     public Long singup(User user){
-        if(!ur.findByEmail(user.getEmail()).isEmpty()){
+        if(!ur.findByEmails(user.getEmail()).isEmpty()){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
         ur.save(user);
@@ -35,5 +36,12 @@ public class UserService {
     @Transactional(readOnly = true)
     public List<User> findUserAll(){
         return ur.findAll();
+    }
+
+    /**
+     * 해당 회원 찾기
+     */
+    public User findByEmail(String email){
+        return ur.findByEmail(email);
     }
 }
