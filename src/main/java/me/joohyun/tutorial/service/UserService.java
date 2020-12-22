@@ -21,9 +21,10 @@ public class UserService {
      */
     public Long singup(User user){
         if(!ur.findByEmails(user.getEmail()).isEmpty()){
-            throw new IllegalStateException("이미 존재하는 회원입니다.");
+
+        }else{
+            ur.save(user);
         }
-        ur.save(user);
         return user.getId();
     }
     /**

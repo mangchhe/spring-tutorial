@@ -27,6 +27,8 @@ public class User {
     private String role;
     private Timestamp loginDate;
     private Timestamp createDate;
+    private String provider;
+    private String providerId;
 
     public User(){}
 
