@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/bodyHeader :: bodyHeader"> </head>
+<head th:replace="fragments/bodyHeader :: bodyHeader"></head>
 
 <body>
 <h1 style="margin-right: 50px">로그인</h1>
@@ -20,10 +20,11 @@
             class="form-control"
     />
     <br />
-    <button type="submit" class="btn btn-primary">제출</button>
-    <a href="/oauth2/authorization/google">구글 로그인</a>
-    <a href="/oauth2/authorization/facebook">페이스북 로그인</a>
-    <a href="/oauth2/authorization/naver">네이버 로그인</a>
+    <button type="submit" class="btn btn-primary" style="border-color: black; background-color: black">로그인</button>
+    <a class="fab fa-google" href="/oauth2/authorization/google" style="color: blue"></a>
+    <a class="fab fa-neos" href="/oauth2/authorization/naver" style="color: darkgreen"></a>
+    <a class="fab fa-facebook-square" href="/oauth2/authorization/facebook" style="color: blue"></a>
+    <a class="fab fa-github" href="/oauth2/authorization/github" style="color: black"></a>
 </form>
 <div th:replace="fragments/footer :: footer"></div>
 </body>

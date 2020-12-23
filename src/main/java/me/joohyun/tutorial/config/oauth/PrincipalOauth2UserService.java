@@ -2,10 +2,7 @@ package me.joohyun.tutorial.config.oauth;
 
 import lombok.Builder;
 import me.joohyun.tutorial.config.auth.PrincipalDetails;
-import me.joohyun.tutorial.config.oauth.provider.FacebookUserInfo;
-import me.joohyun.tutorial.config.oauth.provider.GoogleUserInfo;
-import me.joohyun.tutorial.config.oauth.provider.NaverUserInfo;
-import me.joohyun.tutorial.config.oauth.provider.OAuth2UserInfo;
+import me.joohyun.tutorial.config.oauth.provider.*;
 import me.joohyun.tutorial.domain.User;
 import me.joohyun.tutorial.repository.UserRepository;
 import me.joohyun.tutorial.service.UserService;
@@ -40,8 +37,10 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             oAuth2UserInfo = new GoogleUserInfo(oauth2User.getAttributes());
         }else if(userRequest.getClientRegistration().getRegistrationId().equals("facebook")){
             oAuth2UserInfo = new FacebookUserInfo(oauth2User.getAttributes());
-        }else{
+        }else if(userRequest.getClientRegistration().getRegistrationId().equals("naver")){
             oAuth2UserInfo = new NaverUserInfo((Map)oauth2User.getAttributes().get("response"));
+        }else{
+            oAuth2UserInfo = new GithubUserInfo(oauth2User.getAttributes());
         }
 
         String provider = oAuth2UserInfo.getProvider();
