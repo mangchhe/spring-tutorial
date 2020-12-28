@@ -37,7 +37,11 @@
 
 ### 로그인 & 회원가입
 
-![2 3](https://user-images.githubusercontent.com/50051656/102710932-642ea300-42f9-11eb-9e58-20461007e465.PNG)
+![login_signup](https://user-images.githubusercontent.com/50051656/103227681-481ea780-4972-11eb-9bfc-071f1e0c6ab3.PNG)
+
+### 연동 화면
+
+![connect](https://user-images.githubusercontent.com/50051656/103227706-55d42d00-4972-11eb-9239-ac6a84f3c91c.PNG)
 
 ### 회원 목록 조회
 
